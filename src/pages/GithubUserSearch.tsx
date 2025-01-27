@@ -63,6 +63,7 @@ const GithubUserSearch = () => {
           setUsername={setUsername}
           searchUser={searchUser}
           isLoading={isLoading}
+          darkMode={darkMode}
         />
         {error && (
           <div

@@ -5,23 +5,36 @@ const SearchBar = ({
   setUsername,
   searchUser,
   isLoading,
+  darkMode,
 }: {
   username: string;
   setUsername: React.Dispatch<React.SetStateAction<string>>;
   searchUser: (e: React.FormEvent) => void;
   isLoading: boolean;
+  darkMode: boolean;
 }) => (
   <form onSubmit={searchUser} className="relative">
-    <div className="p-2 sm:p-4 rounded-[15px] shadow-md bg-card-light dark:bg-card-dark">
-      <div className="flex items-center gap-2 sm:gap-4">
-        <Search className="text-primary w-5 h-5 sm:w-6 sm:h-6 ml-2 sm:ml-4 flex-shrink-0" />
+    <div
+      className={`p-2 flex  items-center sm:p-8 rounded-[15px] w-full h-[69px] shadow-md ${
+        darkMode ? "bg-card-dark" : "bg-card-light"
+      }`}
+    >
+      <div className="flex items-center gap-4 w-full">
+        {/* Search Icon */}
+        <Search className="text-primary w-6 h-6 sm:w-6 sm:h-6 flex-shrink-0" />
+
+        {/* Input Field */}
         <input
           type="text"
           placeholder="Search GitHub username..."
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="flex-1 bg-transparent text-body focus:outline-none placeholder:text-light-text dark:placeholder:text-dark-text dark:text-white"
+          className={`flex-1 bg-transparent text-body focus:outline-none placeholder:${
+            darkMode ? "text-dark-text" : "text-light-text"
+          } ${darkMode ? "text-white" : "text-black"}`}
         />
+
+        {/* Search Button */}
         <button
           type="submit"
           disabled={isLoading}
