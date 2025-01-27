@@ -49,7 +49,11 @@ const UserCard = ({ user, darkMode }: { user: any; darkMode: boolean }) => (
           />
           <InfoItem
             icon={twitterIcon}
-            text={`@${user.twitter_username}`}
+            text={
+              user.twitter_username
+                ? `@${user.twitter_username}`
+                : "Not Available"
+            }
             available={!!user.twitter_username}
             link={
               user.twitter_username
@@ -59,14 +63,13 @@ const UserCard = ({ user, darkMode }: { user: any; darkMode: boolean }) => (
           />
           <InfoItem
             icon={websiteIcon}
-            text={user.blog}
+            text={user.blog || "Not Available"}
             link={user.blog}
             available={!!user.blog}
           />
-
           <InfoItem
             icon={companyIcon}
-            text={user.company}
+            text={user.company || "Not Available"}
             available={!!user.company}
           />
         </div>
