@@ -6,13 +6,14 @@ const InfoItem = ({
   link,
   available = true,
 }: {
-  icon: React.ReactNode;
+  icon: string;
   text: string;
   link?: string;
   available?: boolean;
 }) => (
   <div className={`flex items-center gap-2 ${!available && "opacity-50"}`}>
-    <span className="w-5">{icon}</span>
+    {/* Use the local icon as an image */}
+    <img src={icon} alt="icon" className="w-5 h-5" />
     {link ? (
       <a
         href={link.startsWith("http") ? link : `https://${link}`}
@@ -23,7 +24,11 @@ const InfoItem = ({
         {text || "Not Available"}
       </a>
     ) : (
-      <span className="text-body truncate">{text || "Not Available"}</span>
+      <span className="text-body truncate">
+        {text === null || text === undefined || text === ""
+          ? "Not Available"
+          : text}
+      </span>
     )}
   </div>
 );

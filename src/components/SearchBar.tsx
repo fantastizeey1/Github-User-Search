@@ -21,7 +21,11 @@ const SearchBar = ({
     >
       <div className="flex items-center gap-4 w-full">
         {/* Search Icon */}
-        <Search className="text-primary w-6 h-6 sm:w-6 sm:h-6 flex-shrink-0" />
+        <img
+          src="/icon-search.svg"
+          alt="Search Icon"
+          className="text-primary w-6 h-6 sm:w-6 sm:h-6 flex-shrink-0"
+        />
 
         {/* Input Field */}
         <input

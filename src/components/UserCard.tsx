@@ -1,7 +1,11 @@
 import formatDate from "../utils/formatDate";
 import Stat from "./Stat";
 import InfoItem from "./InfoItem";
-import { MapPin, Link as LinkIcon, Twitter, Building } from "lucide-react";
+
+import twitterIcon from "../assets/icon-twitter.svg";
+import websiteIcon from "../assets/icon-website.svg";
+import locationIcon from "../assets/icon-location.svg";
+import companyIcon from "../assets/icon-company.svg";
 
 const UserCard = ({ user, darkMode }: { user: any; darkMode: boolean }) => (
   <div
@@ -39,18 +43,12 @@ const UserCard = ({ user, darkMode }: { user: any; darkMode: boolean }) => (
         </div>
         <div className="grid sm:grid-cols-2 gap-4">
           <InfoItem
-            icon={<MapPin />}
+            icon={locationIcon}
             text={user.location}
             available={!!user.location}
           />
           <InfoItem
-            icon={<LinkIcon />}
-            text={user.blog}
-            link={user.blog}
-            available={!!user.blog}
-          />
-          <InfoItem
-            icon={<Twitter />}
+            icon={twitterIcon}
             text={`@${user.twitter_username}`}
             available={!!user.twitter_username}
             link={
@@ -60,7 +58,14 @@ const UserCard = ({ user, darkMode }: { user: any; darkMode: boolean }) => (
             }
           />
           <InfoItem
-            icon={<Building />}
+            icon={websiteIcon}
+            text={user.blog}
+            link={user.blog}
+            available={!!user.blog}
+          />
+
+          <InfoItem
+            icon={companyIcon}
             text={user.company}
             available={!!user.company}
           />
