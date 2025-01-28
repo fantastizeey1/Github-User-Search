@@ -9,6 +9,8 @@ This is a React application that allows users to search for GitHub profiles by u
 - **Error Handling**: Displays appropriate error messages for invalid or non-existent usernames.
 - **Dark Mode**: Toggle between light and dark themes.
 - **Responsive Design**: Optimized for desktop and mobile devices using Tailwind CSS.
+- **Hover States**: Interactive elements like buttons and inputs have hover effects for better user experience.
+- **System Theme Detection**: The app uses the user's system preferences (via `prefers-color-scheme`) to automatically apply the correct theme.
 
 ## Technology Stack
 
@@ -66,6 +68,7 @@ src/
 2. Click the "Search" button or press `Enter`.
 3. View the user's profile details if found, or see an error message if the user doesn't exist.
 4. Toggle between light and dark modes using the switch in the header.
+5. The app will automatically apply the theme based on your system preferences (light or dark mode).
 
 ## Components
 
@@ -103,6 +106,7 @@ src/
 
 - Handles the state and functionality of the light/dark theme toggle.
 - Saves the user's theme preference in local storage.
+- Automatically applies the theme based on the user's system preferences.
 
 ## API Integration
 
@@ -124,6 +128,7 @@ export const searchGitHubUser = async (username: string) => {
 
 - Tailwind CSS is used for styling.
 - Light and dark themes are managed using conditional class names.
+- The app automatically applies the user's system theme preference via the `prefers-color-scheme` media query.
 
 ## Deployment
 
