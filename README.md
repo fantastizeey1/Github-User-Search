@@ -21,7 +21,9 @@ This is a React application that allows users to search for GitHub profiles by u
 
 ## File Structure
 
-```
+```plaintext
+
+
 src/
 ├── components/
 │   ├── Header.tsx          // Header component with theme toggle
