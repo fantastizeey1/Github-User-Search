@@ -7,24 +7,45 @@ import websiteIcon from "../assets/icon-website.svg";
 import locationIcon from "../assets/icon-location.svg";
 import companyIcon from "../assets/icon-company.svg";
 
-const UserCard = ({ user, darkMode }: { user: any; darkMode: boolean }) => (
+// Define TypeScript interface for the `user` prop
+interface User {
+  avatar_url: string;
+  name: string | null;
+  login: string;
+  created_at: string;
+  bio: string | null;
+  public_repos: number;
+  followers: number;
+  following: number;
+  location: string | null;
+  twitter_username: string | null;
+  blog: string | null;
+  company: string | null;
+}
+
+interface UserCardProps {
+  user: User;
+  darkMode: boolean;
+}
+
+const UserCard = ({ user, darkMode }: UserCardProps) => (
   <div
-    className={`p-6 sm:p-8 rounded-[15px] shadow-md ${
+    className={`p-6 sm:py-8 sm:px-6 rounded-[15px] shadow-md ${
       darkMode ? "bg-card-dark" : "bg-card-light"
     }`}
   >
-    <div className="flex flex-col   gap-6 sm:gap-8">
-      <div className="flex flex-row gap-5 md:gap-10 sm:gap-8">
+    <div className="flex flex-col gap-6 lg:gap-0 sm:gap-8">
+      <div className="flex flex-row items-center lg:items-start gap-5 md:gap-10 sm:gap-8">
         {/* Avatar */}
         <div>
           <img
-            src={user.avatar_url}
-            alt={user.name}
-            className="w-[70px] h-[70px] sm:w-[117px] sm:h-[117px] rounded-full"
+            src={user.avatar_url || "https://via.placeholder.com/117"} // Fallback for missing avatar
+            alt={user.name || user.login}
+            className="w-[70px] h-[70px] sm:w-[117px] sm:h-[117px] rounded-full lg:mx-[20px]"
           />
         </div>
         {/* Name and Joined Date */}
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+        <div className="flex flex-col lg:w-[480px] items-center lg:items-start lg:flex-row lg:justify-between sm:items-start gap-2 lg-gap-0">
           <div>
             <h2 className="text-h2 text-[26px] font-bold">
               {user.name || user.login}
@@ -55,7 +76,7 @@ const UserCard = ({ user, darkMode }: { user: any; darkMode: boolean }) => (
           <div className="grid sm:grid-cols-2 gap-4">
             <InfoItem
               icon={locationIcon}
-              text={user.location}
+              text={user.location || "Not Available"}
               available={!!user.location}
             />
             <InfoItem
@@ -75,7 +96,7 @@ const UserCard = ({ user, darkMode }: { user: any; darkMode: boolean }) => (
             <InfoItem
               icon={websiteIcon}
               text={user.blog || "Not Available"}
-              link={user.blog}
+              link={user.blog || undefined}
               available={!!user.blog}
             />
             <InfoItem

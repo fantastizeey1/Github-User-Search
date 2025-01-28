@@ -8,7 +8,7 @@ import UserCard from "../components/UserCard";
 interface GitHubUser {
   login: string;
   name: string;
-  avatar_url?: string;
+  avatar_url: string;
   bio: string;
   location: string;
   blog: string;
@@ -64,16 +64,9 @@ const GithubUserSearch = () => {
           searchUser={searchUser}
           isLoading={isLoading}
           darkMode={darkMode}
+          error={error}
         />
-        {error && (
-          <div
-            className={`p-4 text-center rounded-[15px] ${
-              darkMode ? "bg-card-dark" : "bg-card-light"
-            }`}
-          >
-            <p className="text-[#F74646] font-bold">{error}</p>
-          </div>
-        )}
+
         {user && <UserCard user={user} darkMode={darkMode} />}
       </div>
     </div>
