@@ -50,7 +50,9 @@ const GithubUserSearch = () => {
   return (
     <div
       className={`min-h-screen transition-colors duration-200 ${
-        darkMode ? "bg-dark text-dark-text" : "bg-light text-light-text"
+        darkMode
+          ? "bg-dark text-dark-text text-h2-dark"
+          : "bg-light text-light-text text-h2-light"
       } p-4 sm:p-6 md:p-8`}
     >
       <div className="max-w-[730px] mx-auto space-y-6">

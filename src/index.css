@@ -8,10 +8,12 @@
   --color-light-bg: #f6f8ff;
   --color-dark-bg: #141d2f;
   --color-light-text: #4b6a9b;
-  --color-dark-text: #fefefe;
+  --color-dark-text: #ffffff;
   --color-card-dark: #1e2a47;
   --color-card-light: #fefefe;
   --color-unavailable: #697c9a;
+  --color-text-h2-dark: #ffffff;
+  --color-text-h2-light: #2b3442;
 
   /* Typography */
   --font-space-mono: "Space Mono", monospace;

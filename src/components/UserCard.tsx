@@ -52,9 +52,7 @@ const UserCard = ({ user, darkMode }: UserCardProps) => (
             </h2>
             <p className="text-primary">@{user.login}</p>
           </div>
-          <p className="text-body opacity-75">
-            Joined {formatDate(user.created_at)}
-          </p>
+          <p className="text-body ">Joined {formatDate(user.created_at)}</p>
         </div>
       </div>
 
