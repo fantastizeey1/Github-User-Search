@@ -30,7 +30,7 @@ interface UserCardProps {
 
 const UserCard = ({ user, darkMode }: UserCardProps) => (
   <div
-    className={`p-6 sm:py-8 sm:px-6 rounded-[15px] shadow-md ${
+    className={`p-6 sm:py-8 sm:px-6 rounded-[15px] font-space-mono shadow-md ${
       darkMode ? "bg-card-dark" : "bg-card-light"
     }`}
   >
