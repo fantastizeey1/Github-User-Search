@@ -1,5 +1,7 @@
-import { Moon, Sun } from "lucide-react";
 import { useTheme } from "../hooks/ThemeProvider";
+
+import sunIcon from "../assets/icon-sun.svg";
+import moonIcon from "../assets/icon-moon.svg";
 
 const Header = () => {
   const { isDarkMode, toggleTheme } = useTheme();
@@ -13,7 +15,11 @@ const Header = () => {
         aria-label={`Switch to ${isDarkMode ? "light" : "dark"} mode`}
       >
         {isDarkMode ? "Light" : "Dark"}
-        {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+        <img
+          src={isDarkMode ? sunIcon : moonIcon}
+          alt={`${isDarkMode ? "Sun" : "Moon"} Icon`}
+          className="w-5 h-5"
+        />
       </button>
     </header>
   );
