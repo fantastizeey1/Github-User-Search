@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDarkMode } from "../hooks/useDarkMode";
+import { useTheme } from "../hooks/ThemeProvider";
 import { searchGitHubUser } from "../utils/searchUser";
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
@@ -22,7 +22,7 @@ interface GitHubUser {
 }
 
 const GithubUserSearch = () => {
-  const [darkMode, setDarkMode] = useDarkMode();
+  const { isDarkMode } = useTheme(); // Get theme state from context
   const [username, setUsername] = useState("");
   const [user, setUser] = useState<GitHubUser | null>(null);
   const [error, setError] = useState("");
@@ -36,11 +36,9 @@ const GithubUserSearch = () => {
       setUser(data);
       setError("");
     } catch (err) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError("An unknown error occurred");
-      }
+      setError(
+        err instanceof Error ? err.message : "An unknown error occurred"
+      );
       setUser(null);
     } finally {
       setIsLoading(false);
@@ -50,26 +48,22 @@ const GithubUserSearch = () => {
   return (
     <div
       className={`min-h-screen transition-colors duration-200 ${
-        darkMode
+        isDarkMode
           ? "bg-dark text-dark-text text-h2-dark"
           : "bg-light text-light-text text-h2-light"
       } p-4 sm:p-6 md:p-8`}
     >
       <div className="max-w-[730px] mx-auto space-y-6">
-        <Header
-          darkMode={darkMode}
-          toggleTheme={() => setDarkMode(!darkMode)}
-        />
+        <Header />
         <SearchBar
           username={username}
           setUsername={setUsername}
           searchUser={searchUser}
           isLoading={isLoading}
-          darkMode={darkMode}
           error={error}
         />
 
-        {user && <UserCard user={user} darkMode={darkMode} />}
+        {user && <UserCard user={user} />}
       </div>
     </div>
   );
