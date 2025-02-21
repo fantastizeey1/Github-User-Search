@@ -48,10 +48,10 @@ const UserCard = ({ user }: UserCardProps) => {
           </div>
 
           {/* Name and Joined Date */}
-          <div className="flex flex-col lg:w-[480px] items-center lg:items-start lg:flex-row lg:justify-between sm:items-start gap-2 lg-gap-0">
+          <div className="flex flex-col lg:w-[480px]  lg:items-start lg:flex-row lg:justify-between sm:items-start  gap-2 lg-gap-0">
             <div>
               <h2
-                className={`text-h2 text-[26px] font-bold ${
+                className={` text-[14px] md:text-[26px] font-bold ${
                   isDarkMode ? "text-text-h2-dark" : "text-text-h2-light"
                 }`}
               >
@@ -59,7 +59,7 @@ const UserCard = ({ user }: UserCardProps) => {
               </h2>
               <p className="text-primary">@{user.login}</p>
             </div>
-            <p className="text-body">Joined {formatDate(user.created_at)}</p>
+            <p className="text-body  ">Joined {formatDate(user.created_at)}</p>
           </div>
         </div>
 
