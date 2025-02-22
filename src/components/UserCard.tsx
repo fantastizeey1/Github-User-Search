@@ -41,7 +41,7 @@ const UserCard = ({ user }: UserCardProps) => {
           {/* Avatar */}
           <div>
             <img
-              src={user.avatar_url || "https://via.placeholder.com/117"}
+              src={user.avatar_url}
               alt={user.name || user.login}
               className="w-[70px] h-[70px] sm:w-[117px] sm:h-[117px] rounded-full lg:mx-[20px]"
             />
