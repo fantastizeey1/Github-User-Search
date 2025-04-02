@@ -6,7 +6,7 @@ interface StatProps {
 }
 
 const Stat = ({ label, value }: StatProps) => {
-  const { isDarkMode } = useTheme(); // Use Theme Context
+  const { isDarkMode }: { isDarkMode: boolean } = useTheme(); // Use Theme Context
 
   return (
     <div className="text-center sm:text-left">

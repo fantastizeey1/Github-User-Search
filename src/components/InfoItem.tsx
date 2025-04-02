@@ -11,7 +11,7 @@ const InfoItem = ({
 }) => (
   <div className={`flex items-center gap-2 ${!available && "opacity-50"}`}>
     {/* Use the local icon as an image */}
-    <img src={icon} alt="icon" className="w-5 h-5" />
+    <img src={icon} alt="icon" />
     {link ? (
       <a
         href={link.startsWith("http") ? link : `https://${link}`}

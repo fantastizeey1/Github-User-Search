@@ -32,7 +32,7 @@ const UserCard = ({ user }: UserCardProps) => {
 
   return (
     <div
-      className={`p-6 sm:py-8 sm:px-6 rounded-[15px] font-space-mono shadow-md ${
+      className={`p-8 sm:py-8 sm:px-6 rounded-[15px] font-space-mono shadow-md ${
         isDarkMode ? "bg-card-dark" : "bg-card-light"
       }`}
     >
@@ -43,7 +43,7 @@ const UserCard = ({ user }: UserCardProps) => {
             <img
               src={user.avatar_url}
               alt={user.name || user.login}
-              className="w-[70px] h-[70px] sm:w-[117px] sm:h-[117px] rounded-full lg:mx-[20px]"
+              className="w-[70px] h-[70px] sm:w-[117px] sm:h-[117px] rounded-full "
             />
           </div>
 
@@ -65,7 +65,7 @@ const UserCard = ({ user }: UserCardProps) => {
 
         <div className="flex-1 space-y-6">
           {/* Bio */}
-          <div className="space-y-4 ml-0 lg:ml-[202px]">
+          <div className="space-y-4 ml-0 lg:ml-[150px]">
             <p className="text-body">{user.bio || "This profile has no bio"}</p>
 
             {/* Stats Section */}

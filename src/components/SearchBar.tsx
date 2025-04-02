@@ -20,7 +20,7 @@ const SearchBar = ({
   return (
     <form onSubmit={searchUser} className="relative">
       <div
-        className={`p-2 flex items-center sm:p-4 rounded-[15px] w-full h-[60px] md:h-[69px] shadow-md relative ${
+        className={`p-2 flex items-center justify-between sm:p-4 rounded-[15px] lg:min-w-[729px] w-full h-[60px] md:h-[69px] shadow-md relative ${
           isDarkMode ? "bg-card-dark" : "bg-card-light"
         }`}
       >
@@ -32,6 +32,7 @@ const SearchBar = ({
         />
 
         {/* Input Field */}
+
         <input
           type="text"
           placeholder="Search GitHub username..."
@@ -39,15 +40,19 @@ const SearchBar = ({
           onChange={(e) => setUsername(e.target.value)}
           className={`flex-1 bg-transparent text-body focus:outline-none placeholder:${
             isDarkMode ? "text-dark-text" : "text-light-text"
-          } ${isDarkMode ? "text-white" : "text-black"} px-4`}
+          } ${
+            isDarkMode ? "text-white" : "text-black"
+          } px-4 caret-[#0079FF] focus:caret-[#0079FF] lg:max-w-[500px] pr-[120px] truncate overflow-hidden whitespace-nowrap`}
         />
 
         {/* Error Message inside the input bar */}
-        {error && (
-          <span className="absolute right-[110px] md:right-[150px] lg:right-[140px] text-red-500 text-sm font-bold">
-            {error}
-          </span>
-        )}
+        <div className=" right-0 flex items-center">
+          {error && (
+            <span className="absolute right-[110px] md:right-[150px] lg:right-[140px] text-red-500 text-sm font-bold">
+              {error}
+            </span>
+          )}
+        </div>
 
         {/* Search Button */}
         <button
