@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <header className="flex justify-between w-full items-center">
-      <h1 className="text-h1 text-[26px] tracking-tighter font-bold">
+      <h1 className="text-h1 text-[26px] tracking-[-3px] font-bold">
         devfinder
       </h1>
       <button

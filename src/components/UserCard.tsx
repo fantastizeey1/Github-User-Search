@@ -59,14 +59,26 @@ const UserCard = ({ user }: UserCardProps) => {
               </h2>
               <p className="text-primary">@{user.login}</p>
             </div>
-            <p className="text-body  ">Joined {formatDate(user.created_at)}</p>
+            <p
+              className={`text-body2 whitespace-nowrap ${
+                isDarkMode ? "text-text-h3-dark/70" : "text-text-h3-light"
+              } `}
+            >
+              Joined {formatDate(user.created_at)}
+            </p>
           </div>
         </div>
 
         <div className="flex-1 space-y-6">
           {/* Bio */}
           <div className="space-y-4 ml-0 lg:ml-[150px]">
-            <p className="text-body">{user.bio || "This profile has no bio"}</p>
+            <p
+              className={`text-body2 lg:-mt-[10px] ${
+                isDarkMode ? "text-text-h3-dark/70" : "text-text-h3-light"
+              }`}
+            >
+              {user.bio || "This profile has no bio"}
+            </p>
 
             {/* Stats Section */}
             <div
